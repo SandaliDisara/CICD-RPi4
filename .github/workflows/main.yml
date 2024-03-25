@@ -16,6 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Add a step to copy the service account key from GitHub Secrets to the Firebase folder
+      - name: Copy service account key
+        env:
+          FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          echo "${FIREBASE_SERVICE_ACCOUNT_KEY}" > Firebase/serviceAccountKey.json
+
       - name: Run a one-line script
         run: |
           echo Hello raspberry!
