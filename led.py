@@ -22,7 +22,7 @@ try:
         print("LED off")
         
         # Wait for 4 seconds (total cycle time is 5 seconds)
-        sleep(4)
+        sleep(2)
 
 except KeyboardInterrupt:
     # Clean up GPIO on Ctrl+C exit
