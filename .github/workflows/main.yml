@@ -25,11 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Copy service key
-        env:
-          FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
-        run: |
-          echo "$FIREBASE_SERVICE_ACCOUNT_KEY" > Firebase/serviceActionsKey.json
+      - name: Copy service account key
+        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}" > Firebase/serviceAccountKey.json
           
 
       # Runs a single command using the runners shell
